@@ -1,0 +1,30 @@
+name: Snake Clash Logic Test
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Create bin directory
+        run: mkdir bin
+
+      - name: Compile Java Code
+        run: javac -d bin --source-path src src/com/snakeclash/Main.java
+
+      - name: Execute Logic Demo
+        run: java -cp bin com.snakeclash.Main

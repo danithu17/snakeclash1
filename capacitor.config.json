@@ -1,0 +1,6 @@
+{
+  "appId": "com.snakeclash.app",
+  "appName": "Snake Clash 3D",
+  "webDir": "ui",
+  "bundledWebRuntime": false
+}
