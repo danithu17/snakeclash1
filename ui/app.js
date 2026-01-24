@@ -85,15 +85,18 @@ class Game {
         document.getElementById('btn-start').onclick = () => this.startGame();
         document.getElementById('btn-skins').onclick = () => this.setState('SKINS');
         document.getElementById('btn-skins-back').onclick = () => this.setState('MENU');
-        document.getElementById('btn-claim-daily').onclick = (e) => {
+        const claimBtn = document.getElementById('btn-claim-daily');
+        const claimHandler = (e) => {
+            e.preventDefault();
             e.stopPropagation();
-            if(!this.dailyShown) return;
             this.data.coins += 1000;
             this.data.lastClaim = Date.now();
             this.save();
             document.getElementById('daily-modal').classList.add('hidden');
             this.dailyShown = false;
         };
+        claimBtn.onclick = claimHandler;
+        claimBtn.ontouchstart = claimHandler;
 
         document.getElementById('btn-reset').onclick = () => {
             localStorage.clear();
