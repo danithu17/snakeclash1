@@ -95,6 +95,11 @@ class Game {
             this.dailyShown = false;
         };
 
+        document.getElementById('btn-reset').onclick = () => {
+            localStorage.clear();
+            location.reload();
+        };
+
         const upgrade = (type) => {
             const cost = 100 + this.data.upgrades[type] * 250;
             if (this.data.coins >= cost) {
