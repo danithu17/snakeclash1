@@ -21,7 +21,7 @@ jobs:
           distribution: "temurin"
 
       - name: Create bin directory
-        run: mkdir bin
+        run: mkdir -p bin
 
       - name: Compile Java Code
         run: javac -d bin --source-path src src/com/snakeclash/Main.java
